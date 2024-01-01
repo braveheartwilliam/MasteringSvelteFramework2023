@@ -15,55 +15,57 @@
 	}
 </script>
 
-<h1>MTGCounter App</h1>
-<div class="row">
-	<Team
-		bind:teamColor={teamRedColor}
-		bind:teamLoser
-		bind:teamScore={teamScoreRed}
-	/>
-	<Team
-		bind:teamColor={teamBlueColor}
-		bind:teamLoser
-		bind:teamScore={teamScoreBlue}
-	/>
-</div>
-<div class="col">
-	{#if teamLoser === 'blue'}
-		<h2
-			class="winner"
-			style="color:red"
-		>
-			Red Won
-		</h2>
-		<h2>
-			<button
-				on:click={resetGame}
-				class="btn newGame">New Game</button
+<main>
+	<h1>MTGCounter App</h1>
+	<div class="row">
+		<Team
+			bind:teamColor={teamRedColor}
+			bind:teamLoser
+			bind:teamScore={teamScoreRed}
+		/>
+		<Team
+			bind:teamColor={teamBlueColor}
+			bind:teamLoser
+			bind:teamScore={teamScoreBlue}
+		/>
+	</div>
+	<div class="col">
+		{#if teamLoser === 'blue'}
+			<h2
+				class="winner"
+				style="color:red"
 			>
-		</h2>
-	{:else if teamLoser === 'red'}
-		<h2
-			class="winner"
-			style="color:blue"
-		>
-			Blue Won
-		</h2>
-		<div class="row">
+				Red Won
+			</h2>
 			<h2>
 				<button
 					on:click={resetGame}
 					class="btn newGame">New Game</button
 				>
 			</h2>
-		</div>
-	{:else}
-		<button
-			on:click={resetGame}
-			class="btn reset">Reset Game</button
-		>
-	{/if}
-</div>
+		{:else if teamLoser === 'red'}
+			<h2
+				class="winner"
+				style="color:blue"
+			>
+				Blue Won
+			</h2>
+			<div class="row">
+				<h2>
+					<button
+						on:click={resetGame}
+						class="btn newGame">New Game</button
+					>
+				</h2>
+			</div>
+		{:else}
+			<button
+				on:click={resetGame}
+				class="btn reset">Reset Game</button
+			>
+		{/if}
+	</div>
+</main>
 
 <style>
 	div.row {
